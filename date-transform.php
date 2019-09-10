@@ -26,7 +26,7 @@ $row = $res->fetch_assoc();
 
 $oldstamp = $row["stamp"];
 $currstamp = $row["ahora"];
-$targetstamp = strtotime('last Friday 03:28:47');
+$targetstamp = strtotime('last Friday 9:28:47');
 $ddiff = $targetstamp - $oldstamp;
 
 echo $oldstamp;
@@ -57,6 +57,7 @@ echo 'close';
 run in phpmyadmin
 UPDATE `availability_today` SET `stamp`=`stamp`+127133290
 $mysqli = mysqli_connect("sql108.byethost7.com", "b7_24447646", "Palmtree!00", "b7_24447646_statistiki");
+sort desc stamp in phpmyadmin and adjust for written time
 
 </pre>
 </body>
