@@ -19,18 +19,29 @@
 echo "Hola<br><hr>";
 
 $mysqli = mysqli_connect("sql108.byethost7.com", "b7_24447646", "Palmtree!00", "b7_24447646_statistiki");
-$res = mysqli_query($mysqli, "select stamp, UNIX_TIMESTAMP() as ahora from availability_today limit 10");
+$res = mysqli_query($mysqli, "select stamp, UNIX_TIMESTAMP() as ahora from availability_today order by stamp desc limit 10");
 
 $row = $res->fetch_assoc();
 
 
 $oldstamp = $row["stamp"];
-$newstamp = $row["ahora"];
-$ddiff = $newstamp - $oldstamp;
+$currstamp = $row["ahora"];
+$targetstamp = strtotime('last Friday 03:28:47');
+$ddiff = $targetstamp - $oldstamp;
 
-echo $row["stamp"];
+echo $oldstamp;
+echo '<br>';
+echo date("l M j, Y, H:i:s",$oldstamp);
 echo "<hr>";
-echo $row["ahora"];
+
+echo $currstamp;
+echo '<br>';
+echo date("l M j, Y, H:i:s",$currstamp);
+echo "<hr>";
+
+echo $targetstamp;
+echo '<br>';
+echo date("l M j, Y, H:i:s",$targetstamp);
 echo "<hr>";
 echo $ddiff;
 echo "<hr>";
